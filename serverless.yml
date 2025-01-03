@@ -1,0 +1,22 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: juandr08
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: pa88y-prueba-tecnica
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-2
+
+functions:
+  api:
+    handler: src/handler.handler
+    events:
+      - httpApi: "*"
+
+custom:
+  serverless-offline:
+    httpPort: 5000 
+
+plugins:
+  - serverless-offline
